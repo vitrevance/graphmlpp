@@ -1,16 +1,7 @@
-add_library(${PROJECT_NAME} INTERFACE)
-target_include_directories(${PROJECT_NAME} INTERFACE .)
+add_library(${PROJECT_NAME} STATIC pugixml.cpp)
+target_include_directories(${PROJECT_NAME} PUBLIC .)
 
 set_target_properties(${PROJECT_NAME} PROPERTIES CXX_EXTENSIONS OFF)
-
-# pugixml
-include(FetchContent)
-FetchContent_Declare(
-  pugixml
-  URL https://github.com/zeux/pugixml/archive/b2b466403084667c90a0f0cc4e960405cfc8117a.zip
-)
-FetchContent_MakeAvailable(pugixml)
-target_link_libraries(${PROJECT_NAME} INTERFACE pugixml)
 
 # string-view-lite
 include(FetchContent)
