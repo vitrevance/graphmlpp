@@ -59,7 +59,7 @@ struct Loader {
     template <typename T>
     T ExtractAt(nonstd::string_view key) const {
       if (!HasAttribute(key)) {
-        throw std::runtime_error("Invalid key: " + key.to_string());
+        throw std::runtime_error("Invalid key: " + std::string(key));
       }
       return Extract<T>(key);
     }
